@@ -1,0 +1,28 @@
+/*mobile version*/
+
+.page {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial;
+}
+
+.contact {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-contactpagina__inputelement{
+    display: flex;
+    flex-direction: row;
+    margin: 15px 0px 15px 0px
+}
+
+.fx-col{
+    flex-direction: column;
+}
+
+@media only screen and (min-width: 800px) {
+
+}

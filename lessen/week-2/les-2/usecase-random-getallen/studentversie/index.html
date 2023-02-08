@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Usecase random getallen </title>
+</head>
+<body>
+
+<script>
+
+    const main = async () => {
+        const aantalRandomGetallen = 10;
+        const requestPromises = [];
+
+        for (let i = 0; i < aantalRandomGetallen; i++) {
+            requestPromises.push(fetch('http://localhost:3000/random'));
+        }
+
+        const responses = //Promises.all
+
+//student uitwerking
+
+        let sum = 0;
+        for(const response of responses) {
+
+//student uitwerking
+
+        }
+
+        console.log(sum);
+
+    }
+
+    main();
+
+</script>
+
+</body>
+</html>

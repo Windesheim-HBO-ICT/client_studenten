@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Async problems</title>
+</head>
+<body>
+
+<script>
+
+
+    // Synchroon uitgevoerd
+    console.log('1');
+    console.log('2');
+    console.log('3');
+
+    // Asynchroon uitgevoerd
+    console.log('4');
+    setTimeout(function () {
+        console.log('5');
+    }, 1000);
+    console.log('6');
+
+    // Probleem 4,6,5, hoe te wachten op 5?
+
+    // Oplossing 1: Callback
+    function print6() {
+        console.log('6');
+    }
+
+    function print5(callback) {
+        setTimeout(function () {
+            console.log('5');
+            callback();
+        }, 1000);
+    }
+
+    print5(print6);
+
+    // Oplossing 2: Promise
+    let resolver = function (resolve, reject) {
+        setTimeout(function () {
+            console.log('5');
+            resolve();
+        }, 1000);
+    };
+
+    let print5Promise = new Promise(resolver);
+
+    print5Promise.then(function () {
+        console.log('6');
+    });
+
+    console.log(print5Promise);
+
+    // Promise error handling
+    let pError = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject('Error!');
+        }, 1000);
+    })
+        .then(() => {
+            console.log('Then 1');
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+
+
+    // Oplossing 3: Async/Await
+    async function print56() {
+        await print5Promise;
+        console.log('6');
+    }
+
+    async function main() {
+        try {
+            await print56();
+        }catch(error){
+            console.log(error);
+        }
+    }
+
+    main();
+
+
+</script>
+
+</body>
+</html>

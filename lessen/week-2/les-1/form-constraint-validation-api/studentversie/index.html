@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Constraint Validation API</title>
+</head>
+<body>
+
+<form action="" method="post" class="form-email">
+
+    <input type="email" name="email" id="email" required minlength="8">
+
+    <input type="submit" value="Verstuur!">
+
+</form>
+
+<script>
+
+    const email = document.getElementById("email");
+
+    email.addEventListener("input", (event) => {
+        debugger
+        if (email.validity.typeMismatch) {
+            email.setCustomValidity("Voer een geldig emailadres in!");
+            email.reportValidity();
+        } else {
+            email.setCustomValidity("");
+        }
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form versturen</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <script defer src="scripts/app.js"></script>
+</head>
+<body>
+
+<form novalidate action="http://localhost:3000/form" method="post" class="form-email">
+
+    <label for="email">
+        <span>Emailadres:</span>
+        <input type="email" name="email" id="email" required minlength="8">
+        <span class="error" aria-live="polite"></span>
+    </label>
+
+    <input type="submit" value="Verstuur!">
+
+</form>
+
+</body>
+</html>
