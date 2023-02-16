@@ -1,4 +1,4 @@
-import {HogerLagerFeature} from "./hogerlager-feature";
+import {HogerLagerFeature} from "./hogerlager-feature.js";
 
 class App {
 
