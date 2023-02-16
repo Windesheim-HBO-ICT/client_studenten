@@ -10,10 +10,10 @@ class Model {
         if(isNaN(intGok) || typeof intGok !== "number"){
             throw new Error("Gok moet een getal zijn");
         }
+        
+        let antwoord = await this.data.getGetal(gok);
 
-        let anwoord = await this.data.getGetal(gok);
-
-        return anwoord.result;
+        return antwoord.result;
     }
 
 }

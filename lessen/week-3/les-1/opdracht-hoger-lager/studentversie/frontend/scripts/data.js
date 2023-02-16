@@ -1,7 +1,6 @@
-
 class Data {
 
-    getGetal(gok) {
+    async getGetal(gok) {
 
 //student uitwerking
 
