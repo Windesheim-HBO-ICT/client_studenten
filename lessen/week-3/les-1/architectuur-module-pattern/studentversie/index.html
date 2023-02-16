@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Architectuur Module Pattern</title>
+</head>
+<body>
+
+<script>
+  //Vanilla JS
+  // const Shell = {};
+  // Shell.FeatureX = {};
+  // Shell.FeatureY = {};
+  // Shell.Model = {};
+  // Shell.Data = {};
+  //
+  // Shell;
+
+
+
+  // Module Pattern
+
+  const Shell = (function () {
+    const init = () => {
+      console.log('Shell init');
+    };
+
+    return {
+      init
+    };
+  })();
+
+  Shell.FeatureX = (function () {
+    const init = () => {
+      console.log('FeatureX init');
+    };
+
+    return {
+      init
+    };
+  })();
+
+
+
+</script>
+
+</body>
+</html>

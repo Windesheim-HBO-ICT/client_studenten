@@ -29,7 +29,6 @@ class GDPR {
         const status = this.cookieStatus() == null ? 'not-chosen' : this.cookieStatus();
         const element = document.querySelector(`.content-gdpr-${status}`);
         element.classList.add('show');
-
     }
 
     resetContent(){
