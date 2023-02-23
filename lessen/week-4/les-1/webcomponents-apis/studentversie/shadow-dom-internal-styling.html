@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shadow DOM</title>
+</head>
+<body>
+
+<span class="small">class small</span>
+
+<script>
+
+    class CustomTitle extends HTMLElement {
+
+        shadowRoot;
+
+        constructor() {
+            super(); // always call super() first in the ctor.
+            this.shadowRoot = this.attachShadow({mode: 'open'})
+            const span = document.createElement('span');
+            span.setAttribute('class', 'small');
+            span.textContent = '2 votes';
+            const p = document.createElement('p');
+            p.appendChild(span);
+            p.innerHTML += 'Spreken is zilver, zwijgen is goud';
+            this.shadowRoot.appendChild(p);
+            this.attachStyling();
+        }
+
+        // class CustomTitle
+        attachStyling(){
+            const style = document.createElement('style');
+            style.textContent = `
+                .small {
+                    font-size: 0.8em;
+                    padding: 0 0.5em;
+                    border-radius: 0.5em;
+                    background-color: #f1f1f1;
+                }
+            `;
+            this.shadowRoot.appendChild(style);
+        }
+
+    }
+
+    customElements.define('custom-title', CustomTitle);
+
+</script>
+
+<custom-title></custom-title>
+
+</body>
+</html>

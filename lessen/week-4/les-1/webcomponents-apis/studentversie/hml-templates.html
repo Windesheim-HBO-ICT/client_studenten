@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Templates</title>
+</head>
+<body>
+
+<template id="chat-message">
+
+    <style>
+        #chat-message {
+            background-color: #f1f1f1;
+            padding: 5px;
+        }
+    </style>
+
+    <p>
+        <slot name="chat-body">Default chat message</slot>
+    </p>
+
+</template>
+
+<script>
+    let body = document.querySelector('body');
+    let chatMessageTemplate = document.querySelector('#chat-message');
+    let clone = chatMessageTemplate.content.cloneNode(true);
+    body.appendChild(clone);
+</script>
+
+</body>
+</html>
