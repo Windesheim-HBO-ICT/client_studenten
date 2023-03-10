@@ -1,5 +1,6 @@
 import {template} from "./modules/template.js";
 import {Cirkel} from "./components/cirkel.js";
+import {Vierkant} from "./components/vierkant.js";
 
 class App extends HTMLElement {
 

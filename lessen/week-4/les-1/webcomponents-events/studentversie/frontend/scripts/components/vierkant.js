@@ -1,15 +1,15 @@
-class Cirkel extends HTMLElement {
+class Vierkant extends HTMLElement {
 
     shadowRoot;
-    templateId = 'click-cirkel-tpl';
-    elementId = 'click-cirkel';
+    templateId = 'click-vierkant-tpl';
+    elementId = 'click-vierkant';
 
 
     constructor() {
         super(); // always call super() first in the ctor.
         this.shadowRoot = this.attachShadow({mode: 'open'});
         this.state = {
-            cirkelClicks: 0
+            vierkantClicks: 0
         };
         this.applyTemplate();
         this.attachStyling();
@@ -30,7 +30,7 @@ class Cirkel extends HTMLElement {
     attachStyling(){
         const linkElem = document.createElement("link");
         linkElem.setAttribute("rel", "stylesheet");
-        linkElem.setAttribute("href", "stylesheets/components/cirkel.css");
+        linkElem.setAttribute("href", "stylesheets/components/vierkant.css");
         this.shadowRoot.appendChild(linkElem);
     }
 
@@ -39,7 +39,7 @@ class Cirkel extends HTMLElement {
     }
 
     sendEvent(){
-        this.shadowRoot.dispatchEvent(new Event('cirkelClick', {composed: true}));
+        this.shadowRoot.dispatchEvent(new Event('vierkantClick', {composed: true}));
     }
 
     attributeChangedCallback(property, oldValue, newValue) {
@@ -66,7 +66,6 @@ class Cirkel extends HTMLElement {
     // }
 
     setState(key, value) {
-        debugger
         this.state[key] = value;
         this.updateBinding(key);
     }
@@ -82,6 +81,6 @@ class Cirkel extends HTMLElement {
 
 }
 
-customElements.define('click-cirkel', Cirkel);
+customElements.define('click-vierkant', Vierkant);
 
-export {Cirkel};
+export {Vierkant};

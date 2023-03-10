@@ -1,0 +1,18 @@
+.vierkant {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    margin: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
