@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>opdracht 4 Webcomponents</title>
+    <script type="module" src="app.js"></script>
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+</head>
+<body>
+
+<section id="opdracht-5">
+
+
+    <boodschappen-app></boodschappen-app>
+
+
+</section>
+
+<template id="boodschappen-app-tpl">
+    <h1>Boodschappen</h1>
+    <ul>
+
+    </ul>
+</template>
+
+<template id="boodschappen-item-tpl" data-bind="product">
+    <li data-color="unpicked">
+        <p data-bind="product">item</p>
+    </li>
+</template>
+
+
+</body>
+</html>
+

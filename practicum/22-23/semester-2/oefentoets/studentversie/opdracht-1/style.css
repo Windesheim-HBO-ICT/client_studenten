@@ -1,0 +1,36 @@
+#opdracht-1{
+    font-family: Arial;
+}
+
+ul{
+    list-style-type: none;
+    width: 300px;
+}
+
+ul li{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid darkgray;
+}
+
+ul li:nth-child(odd){
+
+/*student uitwerking*/
+
+}
+
+ul li:nth-child(1){
+    border-top: 1px solid darkgray;
+}
+
+ul li span {
+
+/*student uitwerking*/
+
+}
+
+
+
+
+/*student uitwerking*/
