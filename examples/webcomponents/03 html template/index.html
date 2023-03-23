@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Template</title>
+</head>
+<body>
+
+<hello-world></hello-world>
+
+<script>
+
+    class HelloWorld extends HTMLElement {
+
+        shadowRoot;
+
+        constructor() {
+            super();
+            this.shadowRoot = this.attachShadow({mode: 'open'});
+            this.shadowRoot.innerHTML = `
+          <h1>Hello world!</h1>
+        `;
+            this.attachStyling();
+        }
+
+        attachStyling() {
+            const linkElem = document.createElement("link");
+            linkElem.setAttribute("rel", "stylesheet");
+            linkElem.setAttribute("href", "style.css");
+            this.shadowRoot.appendChild(linkElem);
+        }
+
+    }
+
+    customElements.define('hello-world', HelloWorld);
+</script>
+
+</body>
+</html>

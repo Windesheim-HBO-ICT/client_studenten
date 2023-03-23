@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+s    <title>Basic Webcomponent</title>
+</head>
+<body>
+
+<hello-world number="1"></hello-world>
+<hello-world number="2"></hello-world>
+<hello-world number="3"></hello-world>
+
+<script>
+
+    class HelloWorld extends HTMLElement {
+        constructor() {
+            super();
+            this.attachShadow({mode: 'open'});
+            this.shadowRoot.innerHTML = `
+          <h1>Hello world! (number ${this.getAttribute('number')})</h1>
+        `;
+        }
+    }
+
+    customElements.define('hello-world', HelloWorld);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Click</title>
+</head>
+<body>
+
+<hello-world></hello-world>
+
+<script>
+
+    class HelloWorld extends HTMLElement {
+
+        shadowRoot;
+
+        constructor() {
+            super();
+            this.shadowRoot = this.attachShadow({mode: 'open'});
+            this.shadowRoot.innerHTML = `
+          <h1>Click hello world!</h1>
+        `;
+
+            this.addEventListener();
+        }
+
+        addEventListener() {
+            this.shadowRoot.querySelector('h1').addEventListener('click', () => {
+                alert('Hello world!');
+            });
+        }
+
+    }
+
+    customElements.define('hello-world', HelloWorld);
+</script>
+
+</body>
+</html>
