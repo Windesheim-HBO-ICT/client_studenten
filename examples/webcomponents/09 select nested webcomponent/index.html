@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bubble event</title>
+</head>
+<body>
+
+<hello-world number="1"></hello-world>
+
+<script>
+
+    class HelloWorld extends HTMLElement {
+
+        shadowRoot;
+
+        constructor() {
+            super();
+            this.shadowRoot = this.attachShadow({mode: 'open'});
+            this.shadowRoot.innerHTML = `<div></div>`;
+            this.attachStyling();
+        }
+
+        connectedCallback() {
+            this.shadowRoot.querySelector('div').append(this.getAttribute('number'));
+            if (this.getAttribute('number') < 3) {
+                const elem = document.createElement('hello-world');
+                elem.setAttribute('number', parseInt(this.getAttribute('number')) + 1);
+                this.shadowRoot.querySelector('div').append(
+                    elem
+                );
+            }
+
+            setTimeout(() => {
+                const nestedElementNumber = this.shadowRoot
+                    .querySelector('hello-world')
+                    .shadowRoot
+                    .querySelector('hello-world').getAttribute('number');
+                alert(nestedElementNumber);
+            }, 1000);
+        }
+
+        attachStyling() {
+            const linkElem = document.createElement("link");
+            linkElem.setAttribute("rel", "stylesheet");
+            linkElem.setAttribute("href", "style.css");
+            this.shadowRoot.appendChild(linkElem);
+        }
+
+    }
+
+    customElements.define('hello-world', HelloWorld);
+
+</script>
+
+</body>
+</html>

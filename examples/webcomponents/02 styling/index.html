@@ -2,15 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Style</title>
+    <title>Template</title>
 </head>
 <body>
 
 <hello-world></hello-world>
-
-<template id="hello-world-tpl">
-    <h1>Hello world!</h1>
-</template>
 
 <script>
 
@@ -21,13 +17,17 @@
         constructor() {
             super();
             this.shadowRoot = this.attachShadow({mode: 'open'});
-            this.applyTemplate();
+            this.shadowRoot.innerHTML = `
+          <h1>Hello world!</h1>
+        `;
+            this.attachStyling();
         }
 
-        applyTemplate() {
-            const template = document.getElementById('hello-world-tpl');
-            const instance = template.content.cloneNode(true);
-            this.shadowRoot.appendChild(instance);
+        attachStyling() {
+            const linkElem = document.createElement("link");
+            linkElem.setAttribute("rel", "stylesheet");
+            linkElem.setAttribute("href", "style.css");
+            this.shadowRoot.appendChild(linkElem);
         }
 
     }

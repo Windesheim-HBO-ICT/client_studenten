@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bubble event</title>
+</head>
+<body>
+
+<hello-world number="1"></hello-world>
+
+<script>
+
+    class HelloWorld extends HTMLElement {
+
+        shadowRoot;
+
+        constructor() {
+            super();
+            this.shadowRoot = this.attachShadow({mode: 'open'});
+            this.shadowRoot.innerHTML = `<div></div>`;
+            this.attachStyling();
+            this.addEventListeners();
+        }
+
+        connectedCallback() {
+            this.shadowRoot.querySelector('div').append(this.getAttribute('number'));
+            if (this.getAttribute('number') < 3) {
+                const elem = document.createElement('hello-world');
+                elem.setAttribute('number', parseInt(this.getAttribute('number')) + 1);
+                this.shadowRoot.querySelector('div').append(
+                    elem
+                );
+            }
+        }
+
+        attachStyling() {
+            const linkElem = document.createElement("link");
+            linkElem.setAttribute("rel", "stylesheet");
+            linkElem.setAttribute("href", "style.css");
+            this.shadowRoot.appendChild(linkElem);
+        }
+
+        addEventListeners() {
+            this.shadowRoot.querySelector('div').addEventListener('click', (e) => {
+                e.preventDefault();
+               //e.stopPropagation(); //voorkomt click op onderliggende div
+                this.dispatchEvent(new CustomEvent('hello-world-clicked', {
+                    bubbles: true,
+                    detail: {
+                        number: this.getAttribute('number')
+                    }
+                }));
+            });
+
+            this.shadowRoot.querySelector('div').addEventListener('hello-world-clicked', (e) => {
+                console.log(`
+                    Number: ${this.getAttribute('number')}
+                    Sender: ${JSON.stringify(e.detail)}
+                    ------------------------------
+                `)
+            });
+        }
+    }
+
+    customElements.define('hello-world', HelloWorld);
+
+</script>
+
+</body>
+</html>
