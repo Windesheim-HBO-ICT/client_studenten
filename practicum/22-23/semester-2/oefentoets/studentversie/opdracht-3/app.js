@@ -8,11 +8,11 @@ const lijsten = [
     ['aardbeien', 'frambozen', 'blauwe bessen', 'bosbessen', 'peren']
 ];
 
-const App = (() => {
+const SPA = (() => {
 
     return {
         init(lijsten) {
-            //App.Boodschappen.init(lijsten);
+            //SPA.Boodschappen.init(lijsten);
 
 //student uitwerking
 
@@ -23,9 +23,9 @@ const App = (() => {
 
 //student uitwerking
 
-App.init(lijsten);
+SPA.init(lijsten);
 //tip, Array.flat. Voorbeeld: console.log(lijsten.flat(2));
-//App.Boodschappen.bereken();
+//SPA.Boodschappen.bereken();
 //student uitwerking
 
 
