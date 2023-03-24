@@ -31,13 +31,16 @@
                 );
             }
 
-            setTimeout(() => {
-                const nestedElementNumber = this.shadowRoot
-                    .querySelector('hello-world')
-                    .shadowRoot
-                    .querySelector('hello-world').getAttribute('number');
-                alert(nestedElementNumber);
-            }, 1000);
+            if(this.getAttribute('number') == 1) {
+                setTimeout(() => {
+                    const nestedElementNumber = this.shadowRoot
+                        .querySelector('hello-world')
+                        .shadowRoot
+                        .querySelector('hello-world').getAttribute('number');
+                    alert(nestedElementNumber);
+                }, 1000);
+            }
+
         }
 
         attachStyling() {

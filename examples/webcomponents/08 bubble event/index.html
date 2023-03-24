@@ -42,10 +42,10 @@
 
         addEventListeners() {
             this.shadowRoot.querySelector('div').addEventListener('click', (e) => {
-                e.preventDefault();
-               //e.stopPropagation(); //voorkomt click op onderliggende div
+                e.stopPropagation(); //voorkomt click op onderliggende div
                 this.dispatchEvent(new CustomEvent('hello-world-clicked', {
                     bubbles: true,
+                    composed: true,
                     detail: {
                         number: this.getAttribute('number')
                     }
