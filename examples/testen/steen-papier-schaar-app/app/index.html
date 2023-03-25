@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Steen Papier Schaar</title>
+</head>
+<body>
+<div id="app"></div>
+<script type="module" src="app.js"></script>
+
+<template id="app-tpl">
+    <h1 data-cy="page-title">Steen papier schaar</h1>
+    <div class="spel-container">
+        <card-tile id="card-steen" image="steen">steen</card-tile>
+        <card-tile id="card-papier" image="papier">papier</card-tile>
+        <card-tile id="card-schaar" image="schaar">schaar</card-tile>
+    </div>
+</template>
+
+<template id="card-tile-tpl">
+    <div class="card-tile">
+        <img src="images/not-found.png" alt="not-found"/>
+    </div>
+</template>
+</body>
+</html>

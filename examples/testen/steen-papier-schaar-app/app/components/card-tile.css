@@ -1,0 +1,17 @@
+img {
+    margin: 5px;
+    border: 1px solid darkgray;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+img:hover {
+    border: 1px solid black;
+}
+
+img.selected{
+    border: 2px solid #1dbb36;
+}
+
+
+
