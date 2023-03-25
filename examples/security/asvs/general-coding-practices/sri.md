@@ -15,6 +15,6 @@ Installatie:
 
 ## OWASP Quickreference Guide
 
-Hoofdstuk General Coding Practices  
+Hoofdstuk General Coding Practices
 Use checksums or hashes to verify the integrity of interpreted code, libraries, executables, and
 configuration files.

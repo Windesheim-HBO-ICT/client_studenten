@@ -4,7 +4,7 @@ Validation/Sanitation door in de hele code base eval() te verbieden, met behulp 
 ## Code voorbeeld
 Geen code voorbeeld.
 
-## Gebruik in Vite
+## Gebruik in de praktijk
 
 Installatie:
 ```
