@@ -1,0 +1,24 @@
+.toast-message{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 25%;
+    width: 50%;
+    margin-top:10px;
+    height: 50px;
+    background-color: #ebffeb;
+    color: #6e6a6a;
+    text-align: center;
+    line-height: 50px;
+    font-size: 16px;
+    font-family: Arial;
+    border: 1px solid #74ef74;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+.toast-message p{
+    display: flex;
+}

@@ -1,4 +1,6 @@
 import './components/card-tile.js';
+import './components/toast-message.js';
+import './components/win-overlay.js';
 
 const element = document.createElement('steenpapierschaar-app');
 document.body.appendChild(element);
@@ -46,22 +48,32 @@ class App extends HTMLElement {
         }
 
         setTimeout(() => {
+            let message = '';
             if (self.playerChoice === self.computerChoice) {
-                alert('gelijkspel. ' + `speler: ${self.playerChoice} vs computer: ${self.computerChoice}`);
+                message = 'gelijkspel. ' + `speler: ${self.playerChoice} vs computer: ${self.computerChoice}`;
             } else if (self.playerChoice === 'steen' && self.computerChoice === 'papier') {
-                alert('computer wint. ' + `speler: ${self.playerChoice} vs computer: ${self.computerChoice}`);
+                message = 'computer wint. ' + `speler: ${self.playerChoice} vs computer: ${self.computerChoice}`;
             } else if (self.playerChoice === 'papier' && self.computerChoice === 'schaar') {
-                alert('computer wint. ' + `speler: ${self.playerChoice} vs computer: ${self.computerChoice}`);
+                message = 'computer wint. ' + `speler: ${self.playerChoice} vs computer: ${self.computerChoice}`;
             } else if (self.playerChoice === 'schaar' && self.computerChoice === 'steen') {
-                alert('computer wint. ' + `speler: ${self.playerChoice} vs computer: ${self.computerChoice}`);
+                message = 'computer wint. ' + `speler: ${self.playerChoice} vs computer: ${self.computerChoice}`;
             } else {
-                alert('speler wint. ' + `speler: ${self.playerChoice} vs computer: ${self.computerChoice}`);
+                message = 'speler wint. ' + `speler: ${self.playerChoice} vs computer: ${self.computerChoice}`;
+            }
+
+            const toast = document.createElement('toast-message');
+            toast.setAttribute('message', message);
+            this.shadowRoot.append(toast);
+
+            if(message.startsWith('speler')){
+                const overlay = document.createElement('win-overlay');
+                this.shadowRoot.append(overlay);
             }
 
             self.shadowRoot.querySelectorAll('card-tile').forEach(card => {
                 card.reset();
             });
-        },2000);
+        },1000);
 
 
     }

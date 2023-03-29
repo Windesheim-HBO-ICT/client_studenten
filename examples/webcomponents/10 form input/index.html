@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Double Binding</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+
+<double-binding number="1">
+    <double-binding/>
+
+    <script>
+
+        class DoubleBinding extends HTMLElement {
+
+            shadowRoot;
+
+            constructor() {
+                super();
+                this.shadowRoot = this.attachShadow({mode: 'open'});
+                this.shadowRoot.innerHTML = `
+            <input type="text"/>
+            <p>type text...</p>
+            `;
+            }
+
+            connectedCallback() {
+                this.attachEventListeners();
+            }
+
+            attachEventListeners(){
+                this.shadowRoot.querySelector('input')
+                    .addEventListener('keydown', (event) => {
+                        this.shadowRoot.querySelector('p').innerHTML = event.target.value;
+                    });
+            }
+
+        }
+
+        customElements.define('double-binding', DoubleBinding);
+
+    </script>
+
+</body>
+</html>

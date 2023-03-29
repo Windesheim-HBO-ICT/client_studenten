@@ -5,7 +5,9 @@ context('Click', () => {
         cy.visit(url)
     })
 
-    it('Click on tile should mark tile selected', () => {
+    it('should show the overlay with cat image', () => {
+
+        cy.intercept('**/cat/*').as('getCatImage')
 
         cy.get('steenpapierschaar-app')
             .shadow()
@@ -14,22 +16,15 @@ context('Click', () => {
             .find('img')
             .click();
 
-        cy.get('steenpapierschaar-app')
-            .shadow()
-            .find('#card-steen')
-            .shadow()
-            .find('img')
-            .should('have.class', 'selected')
+        cy.wait('@getCatImage');
 
         cy.get('steenpapierschaar-app')
             .shadow()
-            .find('#card-schaar')
+            .find('win-overlay')
             .shadow()
             .find('img')
-            .should('have.class', 'selected')
+            .should('be.visible')
 
-    })
-
+        cy.screenshot();
+    });
 });
-
-

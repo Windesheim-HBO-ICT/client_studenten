@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lists</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+
+<template id="basic-list-tpl">
+    <h1>Basic list</h1>
+    <button id="add-button">+</button>
+    <ul></ul>
+</template>
+
+<template id="basic-listitem-tpl">
+    <li>default value</li>
+</template>
+
+<basic-list></basic-list>
+
+    <script>
+
+        class BasicList extends HTMLElement {
+
+            shadowRoot;
+
+            constructor() {
+                super();
+                this.shadowRoot = this.attachShadow({mode: 'open'});
+            }
+
+            connectedCallback() {
+                this.applyTemplate();
+                this.attachEventListeners();
+            }
+
+            attachEventListeners(){
+                this.shadowRoot.getElementById('add-button')
+                    .addEventListener('click',(event) => {
+                        const item = document.createElement('basic-listitem');
+                        this.shadowRoot.querySelector('ul').append(item);
+                    })
+            }
+
+            applyTemplate(){
+                const template = document.getElementById('basic-list-tpl');
+                let clone = template.content.cloneNode(true);
+                this.shadowRoot.appendChild(clone);
+            }
+
+        }
+        customElements.define('basic-list', BasicList);
+
+
+        ///////////////////////////////////////////////////////
+
+
+        class BasicListItem extends HTMLElement {
+
+            shadowRoot;
+
+            constructor() {
+                super();
+                this.shadowRoot = this.attachShadow({mode: 'open'});
+            }
+
+            connectedCallback() {
+                this.applyTemplate();
+                this.attachEventListeners();
+            }
+
+            attachEventListeners(){
+                this.shadowRoot.querySelector('li')
+                    .addEventListener('click',(event) => {
+                        this.remove();
+                    })
+            }
+
+            applyTemplate(){
+                const template = document.getElementById('basic-listitem-tpl');
+                let clone = template.content.cloneNode(true);
+                clone.querySelector('li').innerHTML = new Date();
+                this.shadowRoot.appendChild(clone);
+            }
+
+        }
+        customElements.define('basic-listitem', BasicListItem);
+
+    </script>
+
+
+
+
+</body>
+</html>

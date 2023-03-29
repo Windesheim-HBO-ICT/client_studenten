@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Double Binding</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+
+<template id="login-form-tpl">
+    <p>vul formulier in, verzenden, kijk in de console...</p>
+    <form>
+        <input name="username" type="text"/>
+        <input name="password" type="password"/>
+        <button>Login</button>
+    </form>
+</template>
+
+<login-form></login-form>
+
+    <script>
+
+        class LoginForm extends HTMLElement {
+
+            shadowRoot;
+
+            constructor() {
+                super();
+                this.shadowRoot = this.attachShadow({mode: 'open'});
+            }
+
+            connectedCallback() {
+                this.applyTemplate();
+                this.attachEventListeners();
+            }
+
+            attachEventListeners(){
+                let form = this.shadowRoot.querySelector('form');
+
+                    form.addEventListener('submit', (event) => {
+                        event.preventDefault();
+                        let formData = new FormData(form)
+
+                        for (const d of formData.entries()) {
+                            console.log(d.toString())
+                        }
+
+                        let obj = Object.fromEntries(formData)
+                        console.log(obj)
+
+                    })
+            }
+
+            applyTemplate(){
+                const template = document.getElementById('login-form-tpl');
+                let clone = template.content.cloneNode(true);
+                this.shadowRoot.appendChild(clone);
+            }
+
+        }
+
+        customElements.define('login-form', LoginForm);
+
+    </script>
+
+
+
+
+</body>
+</html>
