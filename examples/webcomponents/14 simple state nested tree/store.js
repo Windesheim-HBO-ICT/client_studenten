@@ -51,10 +51,6 @@ class Store {
         this.state.get(propertyName).setValue(value);
     }
 
-
-
-
-
 }
 
 export default new Store();

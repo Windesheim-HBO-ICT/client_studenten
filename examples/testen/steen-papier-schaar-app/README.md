@@ -11,9 +11,10 @@
 - api testen
 - screenshots voor elementen die verdwijnen
 - alle testen runnen
-- 
 
 ## Projectstructuur en configuratie
+
+### projectstructuur
 De projectstructuur is als volgt:
 ```
 testen
@@ -28,10 +29,13 @@ testen
 │   │   ├── screenshots                 << screenshots van specifiek testenvoorbeeld testen toegepast op de steen papier schaar applicatie
 │   ├── cypress.config.js               << configuratie van cypress, voorbeeld testen uitgeschakeld
 │   ├── package.json                    << start command in scripts
+```
 
+### configuratie
 In de cypress.config.js is de volgende configuratie opgenomen
 om de voorbeeld testen uit te schakelen:
-```javascript
+
+```
 module.exports = defineConfig({
   e2e: {
 ...
@@ -42,4 +46,23 @@ module.exports = defineConfig({
 ...
   },
 ```
+## Project starten
 
+Installeren node_modules:
+`$ npm i`
+
+Uitvoeren testen
+```
+// package.json
+...
+  "scripts": {
+    "test": "npx cypress open",
+    "cypress:open": "cypress open"
+  },
+...
+```
+
+
+
+## Truc om toch alle testen in één keer te runnen
+Import alle test bestanden. Run alleen `99-all.cy.js`.
