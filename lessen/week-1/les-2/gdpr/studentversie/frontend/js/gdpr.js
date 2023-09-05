@@ -23,12 +23,12 @@ class GDPR {
 
     }
 
-
     showContent() {
         this.resetContent();
         const status = this.cookieStatus() == null ? 'not-chosen' : this.cookieStatus();
         const element = document.querySelector(`.content-gdpr-${status}`);
         element.classList.add('show');
+
     }
 
     resetContent(){
@@ -51,13 +51,13 @@ class GDPR {
     }
 
     cookieStatus(status) {
+
         if (status) localStorage.setItem('gdpr-consent-choice', status);
 
 //student uitwerking
 
         return localStorage.getItem('gdpr-consent-choice');
     }
-
 
 //student uitwerking
 
@@ -70,6 +70,24 @@ class GDPR {
     showGDPR(){
         document.querySelector(`.gdpr-consent`).classList.add('show');
     }
+
+    // https://www.w3schools.com/js/js_cookies.asp
+    getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for(let i = 0; i <ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
 }
 
 const gdpr = new GDPR();
