@@ -16,14 +16,16 @@
             requestPromises.push(fetch('http://localhost:3000/random'));
         }
 
-        const responses = //Promises.all
+        const responses = await Promise.all(requestPromises);
 
 //student uitwerking
 
         let sum = 0;
         for(const response of responses) {
 
+            let responseGetal = await response.json();
 //student uitwerking
+            sum += responseGetal.random;
 
         }
 

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    //()()
+
+    let m = ((naam)=>{
+
+        const _groeten = () => {
+            console.log(`gegroet ${naam}`);
+        }
+
+        const Shell = {};
+
+        return {
+            groeten: _groeten
+        };
+
+    })('Timon');
+
+    m.gedagzeggen = (() => {
+
+        const _korteVersie = () => {
+            console.log('Doei');
+        }
+
+        return {
+           korteVersie: _korteVersie
+        }
+
+    })()
+
+    //m.groeten
+
+    m.gedagzeggen.korteVersie();
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

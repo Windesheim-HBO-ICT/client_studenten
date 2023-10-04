@@ -32,7 +32,8 @@ class HelloWorld extends HTMLElement {
         // add eventlistener
         self.shadowRoot.querySelector('div').addEventListener('click', (event) => {
             event.stopPropagation();
-            store.setValue('clickedNumber', `${self.getAttribute('number')} clicked!`);
+            store.setValue('clickedNumber', `${self.getAttribute('number')} 
+            clicked!`);
         })
 
         // In plaats van:
