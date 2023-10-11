@@ -1,5 +1,9 @@
 # Testen van de Steen papier schaar applicatie
 
+## Tooling - Visual Studio Code
+Voor het testen met CypressJS is Visual Studio Code geschikter dan Webstorm. Daarom is het sterk aanbevolen om Visual Studio Code te gebruiken.  
+Na het installeren van Visual Studio Code moet je ook een extensie installeren van Microsoft: Live Preview.
+
 ## Onderwerpen
 - setup
 - testen runnen

@@ -1,4 +1,4 @@
-const url = 'http://localhost:63342/client_toetsing/examples/testen/steen-papier-schaar-app/app/index.html';
+const url = 'http://localhost:3000/examples/testen/steen-papier-schaar-app/app/index.html';
 
 context('Click', () => {
     beforeEach(() => {
