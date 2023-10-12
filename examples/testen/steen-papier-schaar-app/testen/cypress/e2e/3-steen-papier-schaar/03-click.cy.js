@@ -1,4 +1,4 @@
-const url = 'http://localhost:3000/examples/testen/steen-papier-schaar-app/app/index.html';
+const url = 'http://127.0.0.1:3000/examples/testen/steen-papier-schaar-app/app/index.html';
 
 context('Click', () => {
     beforeEach(() => {
