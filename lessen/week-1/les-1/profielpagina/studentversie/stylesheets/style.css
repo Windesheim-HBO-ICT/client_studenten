@@ -68,6 +68,18 @@
     font-size: 14px;
 }
 
+.eigenschappen {
+    list-style-type: none;
+}
+
+.eigenschappen::before {
+    content: '\2022'; /* Unicode-teken voor een rond bullet point */
+    color: blue;
+    display: inline-block;
+    width: 1em; /* Breedte van het bullet point */
+    margin-left: -1em; /* Negatieve marge om het lijstpunt te verbergen */
+}
+
 @media only screen and (min-width: 800px) {
 
     .page {
