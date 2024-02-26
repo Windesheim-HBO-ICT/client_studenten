@@ -6,16 +6,10 @@ class HogerLagerFeature{
     init(){
         console.log('HogerLagerFeature init');
 
-//student uitwerking
+        //#student-start
+        //#student-end
 
     }
-
-    async getGetal(){
-        let gok = document.getElementById("gok").value;
-        let result = await model.getGetal(gok);
-        console.log(result);
-    }
-
 
     eventListeners(){
         document.getElementById('btnSubmit')
@@ -24,7 +18,8 @@ class HogerLagerFeature{
 
     async submitGuess(event){
 
-//student uitwerking
+    //#student-start
+    //#student-end
 
     }
 }

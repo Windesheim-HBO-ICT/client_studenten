@@ -1,8 +1,9 @@
 class Data {
 
-    async getGetal(gok) {
+    async getAnswer(gok) {
 
-//student uitwerking
+        //#student-start
+        //#student-end
 
     }
 
