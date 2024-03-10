@@ -21,7 +21,8 @@ class DamBord extends HTMLElement {
         for (let i = 0; i < this.aantalDamstenen; i++) {
             const damsteen = document.createElement('dam-steen');
             damBord.appendChild(damsteen);
-            damBord.childNodes[i].querySelector('.damsteen').setAttribute("id", i + 1);
+            // We willen de div ín ons custom element een id geven
+            damsteen.querySelector('.damsteen').setAttribute("id", i + 1);
             
         }
         this.attachStyling();
