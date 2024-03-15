@@ -1,7 +1,9 @@
 const template = document.createElement('template');
 template.setAttribute("id", "damsteen");
 template.innerHTML = `
-    <div class="damsteen"></div>
+    <div class="damsteen">
+        <slot name="nummer"></slot>
+    </div>
     
 `
 export default class DamSteen extends HTMLElement {
