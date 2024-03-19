@@ -18,7 +18,7 @@ class WinOverlay extends HTMLElement {
                 const clone = document
                     .getElementById('win-overlay-tpl')
                     .content.cloneNode(true);
-                clone.querySelector('img').src = `https://cataas.com${data.url}`;
+                clone.querySelector('img').src = `https://cataas.com/cat/${data._id}`;
                 this.shadowRoot.appendChild(clone);
                 this.applyStyle();
 

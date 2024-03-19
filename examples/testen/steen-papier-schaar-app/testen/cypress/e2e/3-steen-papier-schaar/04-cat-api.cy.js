@@ -7,7 +7,7 @@ context('Click', () => {
 
     it('should show the overlay with cat image', () => {
 
-        // cy.intercept('**/cat/*').as('getCatImage')
+        // cy.intercept('**/cat*').as('getCatImage')
 
         cy.get('steenpapierschaar-app')
             .shadow()
