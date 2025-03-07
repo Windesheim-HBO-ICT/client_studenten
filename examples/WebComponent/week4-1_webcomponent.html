@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+    <style>
+        body {
+
+            font-family: verdana, sans-serif;
+            margin:0;
+        }
+
+        header {
+            background-color: #ff0088;
+            color: white;
+            text-align: center;
+            padding: 15px 5px 5px 5px;
+            height:50px;
+            font-size:18pt;
+
+        }
+    </style>
+    <script src="MyComponent.js"></script>
+    <script src="MyCounterComponent.js"></script>
+    <script lang="javascript">
+        console.log("Hello World");
+
+        //function that is called bij the onclick from the button
+        function doSomething()
+        {
+            console.log("dosomething")
+            //get the attribute from a counter 1 element or 0 if it does not exist
+            let count = document.getElementById("counter1").getAttribute("count")||0;
+
+            //increment the count
+            count++;
+
+            //set the new count attribute
+            document.getElementById("counter1").setAttribute("count",count);
+           
+        }
+
+        //do this on load of the window because the counter 1 element is not there yet when the script is loaded
+        window.onload = (event) => {
+            console.log("window.onload");
+            //add an event listener to the counter1 element and set it to a anonymous function
+            document.getElementById("counter1").addEventListener("counterReset", function(event){
+                console.log("counterReset event received in main");
+                console.log(event.detail);
+            });
+        }
+        
+      
+    
+    </script>
+<head>
+    <title>WD Client Webcomponent</title>
+    </head>
+    <body>
+        <header>
+            Welcome to the fiddle zone &lt;WebComponents&gt; edition!
+        </header>
+        <div>
+            <button onclick="doSomething();">Click me</button>
+            De datum is: 
+            <my-component pretext="this comes before, Mathijs!"></my-component>
+            <br/>
+            De datum is ook: <my-component/>
+        </div>
+
+        <my-counter id="counter1"></my-counter>
+        <my-counter id="counter2" count="42" title="the answer"></my-counter> 
+       </body>
+</html>
