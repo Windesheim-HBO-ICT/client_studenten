@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+  <script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
+  <link
+    href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      font-family: verdana, sans-serif;
+      margin: 0;
+    }
+
+    header {
+      background-color: #0099ff;
+      color: white;
+      text-align: center;
+      padding: 15px 5px 5px 5px;
+      height: 50px;
+      font-size: 18pt;
+    }
+    section {
+      margin: 10px;
+    }
+
+    #geoplaceholder {
+      height: 400px;
+    }
+  </style>
+  <script src="data.js"></script>
+
+  <script type="module" lang="javascript">
+    const colors = {
+        PV20: "#A6CEE3",
+        PV21: "#1F78B4",
+        PV22: "#B2DF8A",
+        PV23: "#33A02C",
+        PV24: "#FB9A99",
+        PV25: "#E31A1C",
+        PV26: "#FDBF6F",
+        PV27: "#FF7F00",
+        PV28: "#CAB2D6",
+        PV29: "#6A3D9A",
+        PV30: "#FFFF99",
+        PV31: "#B15928",
+      };
+    function setupGeo() {
+        //gebruik mydata (uit data.js) om de kaart te maken (deze is al ingeladen)
+        //gebruik de colors dictionary om de kleuren van de punten op de kaart te bepalen
+
+     
+    }
+
+    setupGeo();
+  </script>
+
+  <head>
+    <title>WD Client Libraries</title>
+  </head>
+  <body>
+    <header>Welcome to Client with external libraries!</header>
+
+    <section>
+      Hier komt de kaart:
+      <div id="geoplaceholder"></div>
+    </section>
+  </body>
+</html>

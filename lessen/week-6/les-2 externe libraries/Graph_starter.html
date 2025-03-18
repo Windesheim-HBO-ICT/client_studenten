@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+  
+  <style>
+    body {
+      font-family: verdana, sans-serif;
+      margin: 0;
+    }
+
+    header {
+      background-color: #0099ff;
+      color: white;
+      text-align: center;
+      padding: 15px 5px 5px 5px;
+      height: 50px;
+      font-size: 18pt;
+    }
+    section {
+      margin: 10px;
+    }
+  </style>
+  <script src="data.js"></script>
+
+  <script type="module" lang="javascript">
+    function getGraphData() {
+      const graphdata = mydata.reduce((acc, { STATCODE }) => {
+        let index = acc.findIndex((e) => e.name === STATCODE);
+        if (index < 0) {
+          acc.push({ name: STATCODE, count: 1 });
+        } else {
+          acc[index].count += 1;
+        }
+        return acc;
+      }, []);
+      var labels = graphdata.map(function (e) {
+        return e.name;
+      });
+      var data = graphdata.map(function (e) {
+        return e.count;
+      });
+      return { labels: labels, data: data };
+    }
+
+    function setupGraph() {
+        //gebruik de data van de getGraphData functie voor je grafiek
+    }
+
+    setupGraph();
+  </script>
+
+  <head>
+    <title>WD Client Libraries</title>
+  </head>
+  <body>
+    <header>Welcome to Client with external libraries!</header>
+
+    <section>
+      Hier komt de grafiek:
+      <div id="graphplaceholder" style="width: 100%; height: 400px"></div>
+    </section>
+  </body>
+</html>
