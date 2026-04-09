@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+<body>
+
+  <!-- Add your site or application content here -->
+  <p>Hello promise! This is HTML5 Boilerplate.</p>
+  
+  <script>
+
+    // 1. Create a new promise that resolves after 2 seconds
+    var promise = new Promise(function(resolve, reject) {
+      setTimeout(function() {
+        //reject("Whoops! Something went wrong.");
+        resolve("Promise resolved!");
+      }, 2000);
+    });
+
+    // promise
+    // .then(function(message) {
+    //   console.log(message);
+    // })
+    // .catch(function(error) {
+    //   console.error(error);
+    // });
+
+    // 2. Rewriting the same promise using async/await
+    async function asyncFunction() {
+      try {
+        var message = await promise;
+        console.log(message);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    asyncFunction();
+
+    //3. Rewriting the same promise using async/await exception handling
+    // var throwPromise = new Promise(function(resolve, reject) {
+    //   setTimeout(function() {
+    //     reject("Promise rejected!");
+    //   }, 2000);
+    // });
+
+    // async function asyncFunction() {
+    //   try {
+    //     var message = await throwPromise;
+    //     console.log(message);
+    //   } catch (error) {
+    //     console.error(error);
+    //   }
+    // }
+
+    // asyncFunction();
+
+  </script>
+  
+</body>
+
+</html>
